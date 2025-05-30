@@ -37,6 +37,16 @@ public class PlayerInteraction implements Listener {
             return;
         }
 
+        // Block 32k weapons from damaging players
+        var item = attacker.getInventory().getItemInMainHand();
+        if (item != null && item.getEnchantments().values().stream().anyMatch(l -> l > 1000)) {
+            if (victim instanceof Player) {
+                ev.setCancelled(true);
+                attacker.sendMessage(Configvar.config.getString("prefix") + "32k weapons are disabled against players.");
+                return;
+            }
+        }
+
         if (victim instanceof Player) {
             if (!playerCanInteract((Player) victim)) {
                 ev.setCancelled(true);
@@ -88,7 +98,7 @@ public class PlayerInteraction implements Listener {
         boolean noLoginPlayerCantInteract = Configvar.config.getBoolean("noLoginPlayerCantInteract");
         boolean isPlayerInNoLoginList = Configvar.noLoginPlayerList.contains(player.getName());
 
-        // 如果设置为true（未登录玩家不能交互），且玩家在未登录列表中，则不能交互
+        // When true and the player is not logged in, interactions are blocked
         return !(noLoginPlayerCantInteract && isPlayerInNoLoginList);
     }
 }

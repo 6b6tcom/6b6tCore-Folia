@@ -2,7 +2,7 @@ version: 2.1.2
 Language: "简体中文 (Simplified Chinese)"
 loadedLanguage: "已加载语言文件: %s"
 
-logEnable: "波比登录(blbiLogin)系统已注入。"
+logEnable: "波比登录(6b6t)系统已注入。"
 logPlayerJoin: "检测到玩家 %s 进入服务器, 已封锁玩家移动."
 logNoLoginTryMove: "未登录玩家 %s 尝试移动，已进行回弹."
 
@@ -24,13 +24,13 @@ kickByPasswordRested: "§f你的密码已被重置, 请重新登录"
 
 # 修改下面的内容前请确保 config.yml 中的对应功能已开启
 noLoginPlayerSendMessage: "您当前§c未登录§f, 操作可能受限, 使用 /login <密码> 进行登录"
-noLoginPlayerSendTitle: "§l欢迎使用§fblbi§bLogin"
+noLoginPlayerSendTitle: "§l欢迎使用§f6b§b6t"
 noLoginPlayerSendSubTitle: "请使用 §6/login <密码>§f 登录游戏"
 noLoginPlayerSendActionBar: "您当前§c未登录§f, 操作可能受限, 使用 /login <密码> 进行登录"
 
 # 修改下面的内容前请确保 config.yml 中的对应功能已开启
 noRegisterPlayerSendMessage: "您当前§c未注册§f, 操作可能受限, 使用 /register <密码> 进行注册"
-noRegisterPlayerSendTitle: "§l欢迎使用§fblbi§bLogin"
+noRegisterPlayerSendTitle: "§l欢迎使用§f6b§b6t"
 noRegisterPlayerSendSubTitle: "请使用 §6/register <密码>§f 注册游戏"
 noRegisterPlayerSendActionBar: "您当前§c未注册§f, 操作可能受限, 使用 /register <密码> 进行登录"
 

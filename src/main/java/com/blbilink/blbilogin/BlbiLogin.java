@@ -1,4 +1,4 @@
-// 包本体
+// Main class
 package com.blbilink.blbilogin;
 
 import com.blbilink.blbilogin.load.LoadConfig;
@@ -32,7 +32,7 @@ public final class BlbiLogin extends JavaPlugin implements Listener {
     public void onEnable() {
         plugin = this;
 
-        // 初始化插件
+        // Initialize plugin
         LoadConfig.loadConfig(this);
         LoadFunction loadFunction = new LoadFunction(this);
         loadFunction.loadFunction();
@@ -40,12 +40,12 @@ public final class BlbiLogin extends JavaPlugin implements Listener {
         CheckOnline.INSTANCE.sync(this);
         foliaUtil = new FoliaUtil(this);
 
-        // 检查是否是 Folia 服务端核心
+        // Verify running on a Folia server
         foliaUtil.checkFolia(true);
 
         getConfig().options().copyDefaults(true);
         saveDefaultConfig();
-        // 打印 Logo
+        // Print logo
         getLogger().info(TextUtil.getLogo(
                 "Loading...",
                 "BLBILOGIN",
@@ -54,10 +54,10 @@ public final class BlbiLogin extends JavaPlugin implements Listener {
                 Arrays.asList("EggFine","ImFoxerARG"),
                 Arrays.asList("Mgazul")));
 
-        getLogger().info("波比登录系统开始注入。");
+        getLogger().info("6b6t login system injected.");
 
 
-        // 加载 bStats 统计
+        // Load bStats metrics
         Metrics metrics = new Metrics(this, 22490);
         metrics.addCustomChart(new Metrics.SimplePie("chart_id", () -> "My value"));
     }
@@ -65,7 +65,7 @@ public final class BlbiLogin extends JavaPlugin implements Listener {
 
     @Override
     public void onDisable() {
-        // 打印 Logo
+        // Print logo
         getLogger().info(TextUtil.getLogo(
                 "Disabling...",
                 "BLBILOGIN",
@@ -88,7 +88,7 @@ public final class BlbiLogin extends JavaPlugin implements Listener {
     @EventHandler
     public void onPlayerBreak(BlockBreakEvent e) {
         if (Configvar.noLoginPlayerList.contains(e.getPlayer().getName()) && Configvar.config.getBoolean("noLoginPlayerCantBreak")) {
-            getLogger().info("未登录玩家 " + e.getPlayer().getName() + " 尝试挖掘方块" + e.getBlock().getType().name() + "已进行阻止.");
+            getLogger().info("Unlogged player " + e.getPlayer().getName() + " tried to break block " + e.getBlock().getType().name() + " and was blocked.");
             e.setCancelled(true);
         }
     }
@@ -101,7 +101,7 @@ public final class BlbiLogin extends JavaPlugin implements Listener {
                 EntityDamageEvent.DamageCause currentDamageCause = e.getCause();
                 String damageCauseName = currentDamageCause.name();
 
-                getLogger().info("未登录玩家 " + player.getName() + " 受到伤害 " + damageCauseName + " 已进行阻止.");
+                getLogger().info("Unlogged player " + player.getName() + " received damage " + damageCauseName + " and was blocked.");
                 e.setCancelled(true);
             }
         }

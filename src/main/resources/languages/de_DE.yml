@@ -2,7 +2,7 @@ version: 2.0.0
 Language: "Deutsch (German)"
 loadedLanguage: "Sprachdatei geladen: %s"
 
-logEnable: "blbiLogin-System wurde injiziert."
+logEnable: "6b6t-System wurde injiziert."
 logPlayerJoin: "Spieler %s beim Betreten des Servers erkannt, Spielerbewegung wurde blockiert."
 logNoLoginTryMove: "Nicht eingeloggter Spieler %s versuchte sich zu bewegen, wurde zurückgesetzt."
 
@@ -23,13 +23,13 @@ kickByPasswordRested: "§fDein Passwort wurde zurückgesetzt, bitte melde dich e
 
 # Bitte stelle sicher, dass die entsprechende Funktion in config.yml aktiviert ist, bevor du den folgenden Inhalt änderst
 noLoginPlayerSendMessage: "Du bist derzeit §cnicht angemeldet§f, Aktionen können eingeschränkt sein, benutze /login <Passwort> um dich anzumelden"
-noLoginPlayerSendTitle: "§lWillkommen bei §fblbi§bLogin"
+noLoginPlayerSendTitle: "§lWillkommen bei §f6b§b6t"
 noLoginPlayerSendSubTitle: "Bitte benutze §6/login <Passwort>§f um dich im Spiel anzumelden"
 noLoginPlayerSendActionBar: "Du bist derzeit §cnicht angemeldet§f, Aktionen können eingeschränkt sein, benutze /login <Passwort> um dich anzumelden"
 
 # Bitte stelle sicher, dass die entsprechende Funktion in config.yml aktiviert ist, bevor du den folgenden Inhalt änderst
 noRegisterPlayerSendMessage: "Du bist derzeit §cnicht registriert§f, Aktionen können eingeschränkt sein, benutze /register <Passwort> um dich zu registrieren"
-noRegisterPlayerSendTitle: "§lWillkommen bei §fblbi§bLogin"
+noRegisterPlayerSendTitle: "§lWillkommen bei §f6b§b6t"
 noRegisterPlayerSendSubTitle: "Bitte benutze §6/register <Passwort>§f um dich für das Spiel zu registrieren"
 noRegisterPlayerSendActionBar: "Du bist derzeit §cnicht registriert§f, Aktionen können eingeschränkt sein, benutze /register <Passwort> um dich zu registrieren"
 

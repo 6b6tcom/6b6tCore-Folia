@@ -24,13 +24,13 @@ kickByPasswordRested: "§fSua senha foi redefinida, por favor faça login novame
 
 # Certifique-se de que a função esteja habilitada no config.yml para modificar o conteúdo a seguir
 noLoginPlayerSendMessage: "Atualmente você está §csem iniciar sessão§f, as operações podem estar restritas, use /login <senha> para iniciar sessão"
-noLoginPlayerSendTitle: "§lBem-vindo ao §fblbi§bLogin"
+noLoginPlayerSendTitle: "§lBem-vindo ao §f6b§b6t"
 noLoginPlayerSendSubTitle: "Use §6/login <senha>§f para iniciar sessão"
 noLoginPlayerSendActionBar: "Atualmente você está §csem iniciar sessão§f, as operações podem estar restritas, use /login <senha> para iniciar sessão"
 
 # Certifique-se de que a função esteja habilitada no config.yml para modificar o conteúdo a seguir
 noRegisterPlayerSendMessage: "Atualmente você está §csem registro§f, as ações podem ser limitadas, use /register <senha> para registrar"
-noRegisterPlayerSendTitle: "§lBem-vindo ao §fblbi§bLogin"
+noRegisterPlayerSendTitle: "§lBem-vindo ao §f6b§b6t"
 noRegisterPlayerSendSubTitle: "Use §6/register <senha>§f para se registrar"
 noRegisterPlayerSendActionBar: "Atualmente você está §csem registro§f, as ações podem ser limitadas, use /register <senha> para registrar"
 

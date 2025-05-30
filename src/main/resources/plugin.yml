@@ -27,3 +27,7 @@ commands:
     description: "Kill yourself"
     aliases:
       - suicide
+  worldstats:
+    description: "Show world statistics"
+  info:
+    description: "Alias of worldstats"
