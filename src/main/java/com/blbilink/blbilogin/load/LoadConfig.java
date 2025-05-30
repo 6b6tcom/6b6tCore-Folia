@@ -7,7 +7,7 @@ import org.blbilink.blbiLibrary.utils.ConfigUtil;
 
 public class LoadConfig {
     public static void loadConfig(BlbiLogin plugin) {
-        // 加载配置
+        // Load configuration
         plugin.config = new ConfigUtil(plugin);
         Configvar.config = plugin.config.loadConfig("config.yml");
         Configvar.configFile = plugin.config.configFile;
@@ -16,15 +16,15 @@ public class LoadConfig {
     }
 }
 
-// 备用: 加载多配置文件
+// Reserved: load multiple config files
 
-// 获取或创建配置文件
-// 每次运行插件导出一次配置文件模板
+// Get or create config file
+// Export config template on each run
 //plugin.saveResource("config.yml", true);
         /*
-        plugin.getDataFolder().mkdirs(); // 确保数据文件夹存在
+        plugin.getDataFolder().mkdirs(); // ensure data folder exists
         if (!configFile.exists()) {
-            // 如果文件不存在，从资源中复制模板，这里直接使用config.yml.template的名字作为resourcePath
+            // If file does not exist, copy template using config.yml.template as resourcePath
             try {
                 File templateFile = new File(plugin.getDataFolder(), "config.yml");
                 Files.copy(templateFile.toPath(), configFile.toPath(), StandardCopyOption.REPLACE_EXISTING);

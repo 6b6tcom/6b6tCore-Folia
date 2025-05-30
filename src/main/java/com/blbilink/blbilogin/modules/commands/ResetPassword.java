@@ -24,7 +24,7 @@ public class ResetPassword implements CommandExecutor {
                         if (Sqlite.getSqlite().resetPassword(((Player) sender).getUniqueId().toString(), newPassword)) {
                             ((Player) sender).kickPlayer(plugin.i18n.as("kickByPasswordRested",false ,sender.getName()));
                         } else {
-                            sender.sendMessage("§4密码重置失败");
+                            sender.sendMessage("§4Password reset failed");
                         }
                     } else {
                         sender.sendMessage(plugin.i18n.as("msgLoginPasswordWrong",true,sender.getName()));
@@ -40,12 +40,12 @@ public class ResetPassword implements CommandExecutor {
                     if (player != null && player.isOnline()) {
                         if (Sqlite.getSqlite().resetPassword(player.getUniqueId().toString(), newPassword)) {
                             player.kickPlayer(plugin.i18n.as("kickByPasswordRested",false,sender.getName()));
-                            plugin.getLogger().info(playerName + "的密码已被重置为" + newPassword);
+                            plugin.getLogger().info(playerName + " password has been reset to " + newPassword);
                         } else {
-                            plugin.getLogger().severe("密码重置失败");
+                            plugin.getLogger().severe("Password reset failed");
                         }
                     } else {
-                        plugin.getLogger().severe("玩家不在线");
+                        plugin.getLogger().severe("Player not online");
                     }
                 } else {
                     plugin.getLogger().severe(String.format(plugin.i18n.as("msgCommandWrong",false,"/resetpassword <playerName> <newPassword>")));

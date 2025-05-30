@@ -2,7 +2,7 @@ version: 2.0.0
 Language: "العربية (Arabic)"
 loadedLanguage: "تم تحميل ملف اللغة: %s"
 
-logEnable: "تم حقن نظام blbiLogin."
+logEnable: "تم حقن نظام 6b6t."
 logPlayerJoin: "تم اكتشاف دخول اللاعب %s إلى الخادم، تم حظر حركة اللاعب."
 logNoLoginTryMove: "حاول اللاعب %s غير المسجل الحركة، تم إرجاعه."
 
@@ -22,12 +22,12 @@ msgFailSaveConfigFile: "فشل حفظ ملف الإعدادات... يرجى ال
 kickByPasswordRested: "§fتم إعادة تعيين كلمة المرور الخاصة بك، يرجى إعادة تسجيل الدخول"
 
 noLoginPlayerSendMessage: "أنت §cغير مسجل الدخول§f حاليًا، قد تكون العمليات مقيدة، استخدم /login <كلمة المرور> لتسجيل الدخول"
-noLoginPlayerSendTitle: "§lمرحبًا بك في §fblbi§bLogin"
+noLoginPlayerSendTitle: "§lمرحبًا بك في §f6b§b6t"
 noLoginPlayerSendSubTitle: "يرجى استخدام §6/login <كلمة المرور>§f لتسجيل الدخول إلى اللعبة"
 noLoginPlayerSendActionBar: "أنت §cغير مسجل الدخول§f حاليًا، قد تكون العمليات مقيدة، استخدم /login <كلمة المرور> لتسجيل الدخول"
 
 noRegisterPlayerSendMessage: "أنت §cغير مسجل§f حاليًا، قد تكون العمليات مقيدة، استخدم /register <كلمة المرور> للتسجيل"
-noRegisterPlayerSendTitle: "§lمرحبًا بك في §fblbi§bLogin"
+noRegisterPlayerSendTitle: "§lمرحبًا بك في §f6b§b6t"
 noRegisterPlayerSendSubTitle: "يرجى استخدام §6/register <كلمة المرور>§f للتسجيل في اللعبة"
 noRegisterPlayerSendActionBar: "أنت §cغير مسجل§f حاليًا، قد تكون العمليات مقيدة، استخدم /register <كلمة المرور> للتسجيل"
 

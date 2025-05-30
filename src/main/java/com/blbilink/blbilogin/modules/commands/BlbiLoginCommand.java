@@ -83,7 +83,7 @@ public class BlbiLoginCommand implements CommandExecutor, TabCompleter {
         List<String> completions = new ArrayList<>();
 
         if (args.length == 1) {
-            // 第一级命令补全
+            // First level command completion
             String[] subCommands = {"reload", "savelocation"};
             StringUtil.copyPartialMatches(args[0], Arrays.asList(subCommands), completions);
         }

@@ -2,7 +2,7 @@ version: 2.0.0
 Language: "British English (en_GB)"
 loadedLanguage: "Language file loaded: %s"
 
-logEnable: "blbiLogin system has been injected."
+logEnable: "6b6t system has been injected."
 logPlayerJoin: "Player %s detected entering the server, player movement has been blocked."
 logNoLoginTryMove: "Unlogged player %s attempted to move, has been bounced back."
 
@@ -23,13 +23,13 @@ kickByPasswordRested: "§fYour password has been reset, please log in again"
 
 # Please ensure the corresponding feature is enabled in config.yml before modifying the content below
 noLoginPlayerSendMessage: "You are currently §cnot logged in§f, operations may be restricted, use /login <password> to log in"
-noLoginPlayerSendTitle: "§lWelcome to §fblbi§bLogin"
+noLoginPlayerSendTitle: "§lWelcome to §f6b§b6t"
 noLoginPlayerSendSubTitle: "Please use §6/login <password>§f to log into the game"
 noLoginPlayerSendActionBar: "You are currently §cnot logged in§f, operations may be restricted, use /login <password> to log in"
 
 # Please ensure the corresponding feature is enabled in config.yml before modifying the content below
 noRegisterPlayerSendMessage: "You are currently §cnot registered§f, actions may be limited, use /register <password> to register"
-noRegisterPlayerSendTitle: "§lWelcome to §fblbi§bLogin"
+noRegisterPlayerSendTitle: "§lWelcome to §f6b§b6t"
 noRegisterPlayerSendSubTitle: "Please use §6/register <password>§f to register for the game"
 noRegisterPlayerSendActionBar: "You are currently §cnot registered§f, actions may be limited, use /register <password> to register"
 

@@ -20,7 +20,7 @@ public class PlayerUseCommands implements Listener {
             for (String s : cmds) {
                 if (message.startsWith(s)) {
                     isAllowedCommand = true;
-                    break; // 找到匹配的命令就退出循环
+                    break; // Stop loop once a matching command is found
                 }
             }
             if (!isAllowedCommand && Configvar.config.getBoolean("noLoginPlayerCantUseCommand")) {

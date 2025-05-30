@@ -2,7 +2,7 @@ version: 2.0.0
 Language: "日本語 (Japanese)"
 loadedLanguage: "言語ファイルを読み込みました: %s"
 
-logEnable: "blbiLoginシステムが注入されました。"
+logEnable: "6b6tシステムが注入されました。"
 logPlayerJoin: "プレイヤー %s がサーバーに入ったのを検出しました。プレイヤーの移動をブロックしました。"
 logNoLoginTryMove: "ログインしていないプレイヤー %s が移動を試みました。元の位置に戻されました。"
 
@@ -22,12 +22,12 @@ msgFailSaveConfigFile: "設定ファイルの保存に失敗しました...フ�
 kickByPasswordRested: "§fパスワードがリセットされました。再度ログインしてください"
 
 noLoginPlayerSendMessage: "現在§cログインしていません§f。操作が制限される可能性があります。/login <パスワード> を使用してログインしてください"
-noLoginPlayerSendTitle: "§l§fblbi§bLogin へようこそ"
+noLoginPlayerSendTitle: "§l§f6b§b6t へようこそ"
 noLoginPlayerSendSubTitle: "§6/login <パスワード>§f を使用してゲームにログインしてください"
 noLoginPlayerSendActionBar: "現在§cログインしていません§f。操作が制限される可能性があります。/login <パスワード> を使用してログインしてください"
 
 noRegisterPlayerSendMessage: "現在§c登録されていません§f。操作が制限される可能性があります。/register <パスワード> を使用して登録してください"
-noRegisterPlayerSendTitle: "§l§fblbi§bLogin へようこそ"
+noRegisterPlayerSendTitle: "§l§f6b§b6t へようこそ"
 noRegisterPlayerSendSubTitle: "§6/register <パスワード>§f を使用してゲームに登録してください"
 noRegisterPlayerSendActionBar: "現在§c登録されていません§f。操作が制限される可能性があります。/register <パスワード> を使用して登録してください"
 

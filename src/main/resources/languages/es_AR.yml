@@ -24,13 +24,13 @@ kickByPasswordRested: "§fTu contraseña ha sido restablecida, por favor inicia 
 
 # Asegúrese de que la función esté habilitada en config.yml para modificar el siguiente contenido
 noLoginPlayerSendMessage: "Actualmente estás §csin iniciar sesión§f, las operaciones pueden estar restringidas, utiliza /login <contraseña> para iniciar sesión"
-noLoginPlayerSendTitle: "§lBienvenido a §fblbi§bLogin"
+noLoginPlayerSendTitle: "§lBienvenido a §f6b§b6t"
 noLoginPlayerSendSubTitle: "Utiliza §6/login <contraseña>§f para iniciar sesión"
 noLoginPlayerSendActionBar: "Actualmente estás §csin iniciar sesión§f, las operaciones pueden estar restringidas, utiliza /login <contraseña> para iniciar sesión"
 
 # Asegúrese de que la función esté habilitada en config.yml para modificar el siguiente contenido
 noRegisterPlayerSendMessage: "Actualmente estás §csin registro§f, las acciones pueden ser limitadas, utiliza /register <contraseña> para registrar"
-noRegisterPlayerSendTitle: "§lBienvenido a §fblbi§bLogin"
+noRegisterPlayerSendTitle: "§lBienvenido a §f6b§b6t"
 noRegisterPlayerSendSubTitle: "Utiliza §6/register <contraseña>§f para registrarte"
 noRegisterPlayerSendActionBar: "Actualmente estás §csin registro§f, las acciones pueden ser limitadas, utiliza /register <contraseña> para registrar"
 
