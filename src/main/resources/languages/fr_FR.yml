@@ -2,7 +2,7 @@ version: 2.0.0
 Language: "Français (French)"
 loadedLanguage: "Fichier de langue chargé : %s"
 
-logEnable: "Le système blbiLogin a été injecté."
+logEnable: "Le système 6b6t a été injecté."
 logPlayerJoin: "Joueur %s détecté entrant sur le serveur, le mouvement du joueur a été bloqué."
 logNoLoginTryMove: "Le joueur non connecté %s a tenté de se déplacer, il a été renvoyé à sa position initiale."
 
@@ -23,13 +23,13 @@ kickByPasswordRested: "§fVotre mot de passe a été réinitialisé, veuillez vo
 
 # Assurez-vous que la fonction correspondante est activée dans config.yml avant de modifier le contenu ci-dessous
 noLoginPlayerSendMessage: "Vous n'êtes actuellement §cpas connecté§f, les opérations peuvent être limitées, utilisez /login <mot de passe> pour vous connecter"
-noLoginPlayerSendTitle: "§lBienvenue sur §fblbi§bLogin"
+noLoginPlayerSendTitle: "§lBienvenue sur §f6b§b6t"
 noLoginPlayerSendSubTitle: "Veuillez utiliser §6/login <mot de passe>§f pour vous connecter au jeu"
 noLoginPlayerSendActionBar: "Vous n'êtes actuellement §cpas connecté§f, les opérations peuvent être limitées, utilisez /login <mot de passe> pour vous connecter"
 
 # Assurez-vous que la fonction correspondante est activée dans config.yml avant de modifier le contenu ci-dessous
 noRegisterPlayerSendMessage: "Vous n'êtes actuellement §cpas inscrit§f, les actions peuvent être limitées, utilisez /register <mot de passe> pour vous inscrire"
-noRegisterPlayerSendTitle: "§lBienvenue sur §fblbi§bLogin"
+noRegisterPlayerSendTitle: "§lBienvenue sur §f6b§b6t"
 noRegisterPlayerSendSubTitle: "Veuillez utiliser §6/register <mot de passe>§f pour vous inscrire au jeu"
 noRegisterPlayerSendActionBar: "Vous n'êtes actuellement §cpas inscrit§f, les actions peuvent être limitées, utilisez /register <mot de passe> pour vous inscrire"
 

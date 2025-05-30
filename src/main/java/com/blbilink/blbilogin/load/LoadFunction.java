@@ -7,6 +7,9 @@ import com.blbilink.blbilogin.modules.events.PlayerJoin;
 import com.blbilink.blbilogin.modules.events.PlayerSendMessage;
 import com.blbilink.blbilogin.modules.events.PlayerUseCommands;
 import com.blbilink.blbilogin.modules.events.PlayerInteraction;
+import com.blbilink.blbilogin.modules.events.BlockPluginsCommand;
+import com.blbilink.blbilogin.modules.events.AntiOp;
+import com.blbilink.blbilogin.modules.events.PistonDupe;
 import com.blbilink.blbilogin.modules.messages.PlayerSender;
 import org.bukkit.Bukkit;
 
@@ -35,19 +38,26 @@ public class LoadFunction {
         Objects.requireNonNull(plugin.getCommand("login")).setExecutor(new Login());
         Objects.requireNonNull(plugin.getCommand("resetpassword")).setExecutor(new ResetPassword());
         Objects.requireNonNull(plugin.getCommand("kill")).setExecutor(new KillCommand());
+        Objects.requireNonNull(plugin.getCommand("worldstats")).setExecutor(new WorldStatsCommand());
+        Objects.requireNonNull(plugin.getCommand("info")).setExecutor(new InfoCommand());
+        Objects.requireNonNull(plugin.getCommand("stats")).setExecutor(new StatsCommand());
+        Objects.requireNonNull(plugin.getCommand("dupe")).setExecutor(new DupeCommand());
     }
     private void loadListeners(){
-        // 注册Bukkit事件监听器
+        // Register Bukkit event listeners
         Bukkit.getPluginManager().registerEvents(BlbiLogin.plugin, plugin);
         Bukkit.getPluginManager().registerEvents(new PlayerSender(), plugin);
         Bukkit.getPluginManager().registerEvents(new PlayerUseCommands(), plugin);
         Bukkit.getPluginManager().registerEvents(new PlayerJoin(BlbiLogin.plugin), plugin);
         Bukkit.getPluginManager().registerEvents(new PlayerSendMessage(), plugin);
         Bukkit.getPluginManager().registerEvents(new PlayerInteraction(), plugin);
+        Bukkit.getPluginManager().registerEvents(new BlockPluginsCommand(), plugin);
+        Bukkit.getPluginManager().registerEvents(new AntiOp(), plugin);
+        Bukkit.getPluginManager().registerEvents(new PistonDupe(), plugin);
     }
 
     private void loadSqlite(){
-        // 初始化sqlite数据库
+        // Initialize SQLite database
         sqlite = new Sqlite();
     }
 
