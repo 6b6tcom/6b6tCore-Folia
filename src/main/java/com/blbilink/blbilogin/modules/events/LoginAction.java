@@ -18,6 +18,7 @@ public enum LoginAction {
 
     public void loginSuccess(Player player){
         Configvar.noLoginPlayerList.remove(player.getName());
+        Configvar.captchaPassed.remove(player.getName());
         String msgLoginSuccess = plugin.i18n.as("msgLoginSuccess",true,player.getName());
         player.sendMessage(msgLoginSuccess);
         if (Configvar.config.getBoolean("successLoginSendTitle") || Configvar.config.getBoolean("successLoginSendSubTitle")){

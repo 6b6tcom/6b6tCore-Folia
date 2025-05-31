@@ -33,3 +33,9 @@ noRegisterPlayerSendActionBar: "You are currently §cnot registered§f, operatio
 
 successLoginSendTitle: "§a§lLogin Successful"
 successLoginSendSubTitle: "Welcome back: §a%s"
+msgCaptchaSend: "Please solve captcha with /captcha %s"
+msgCaptchaUsage: "Use /captcha <code>, your code is %s"
+msgCaptchaSuccess: "Captcha solved! You may now log in."
+msgCaptchaFail: "§cIncorrect captcha code."
+msgCaptchaNone: "No captcha pending."
+msgCaptchaNotPass: "You must solve the captcha before logging in."

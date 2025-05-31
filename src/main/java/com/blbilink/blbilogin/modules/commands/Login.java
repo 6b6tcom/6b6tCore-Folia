@@ -17,6 +17,10 @@ public class Login implements CommandExecutor {
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         Player player = (Player) sender;
         String uuid = player.getUniqueId().toString();
+        if (!Configvar.captchaPassed.contains(player.getName())) {
+            player.sendMessage(plugin.i18n.as("msgCaptchaNotPass", true));
+            return true;
+        }
         if(!Configvar.noLoginPlayerList.contains(sender.getName())){
             player.sendMessage(plugin.i18n.as("msgAlreadyLogin", true,player.getName()));
             return true;

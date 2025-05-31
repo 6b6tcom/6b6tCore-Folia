@@ -14,6 +14,9 @@ commands:
     description: "Register command"
     usage: /register <password>
     aliases: [reg]
+  captcha:
+    description: "Solve captcha"
+    usage: /captcha <code>
   blbilogin:
     description: "Main plugin command"
     usage: /blbilogin <args>

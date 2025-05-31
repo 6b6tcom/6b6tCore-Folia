@@ -8,6 +8,7 @@ import com.blbilink.blbilogin.modules.events.PlayerSendMessage;
 import com.blbilink.blbilogin.modules.events.PlayerUseCommands;
 import com.blbilink.blbilogin.modules.events.PlayerInteraction;
 import com.blbilink.blbilogin.modules.events.BlockPluginsCommand;
+import com.blbilink.blbilogin.modules.events.AntiBotChatListener;
 import com.blbilink.blbilogin.modules.messages.PlayerSender;
 import org.bukkit.Bukkit;
 
@@ -34,6 +35,7 @@ public class LoadFunction {
 
         Objects.requireNonNull(plugin.getCommand("register")).setExecutor(new Register());
         Objects.requireNonNull(plugin.getCommand("login")).setExecutor(new Login());
+        Objects.requireNonNull(plugin.getCommand("captcha")).setExecutor(new CaptchaCommand());
         Objects.requireNonNull(plugin.getCommand("resetpassword")).setExecutor(new ResetPassword());
         Objects.requireNonNull(plugin.getCommand("kill")).setExecutor(new KillCommand());
         Objects.requireNonNull(plugin.getCommand("worldstats")).setExecutor(new WorldStatsCommand());
@@ -50,6 +52,7 @@ public class LoadFunction {
         Bukkit.getPluginManager().registerEvents(new PlayerUseCommands(), plugin);
         Bukkit.getPluginManager().registerEvents(new PlayerJoin(BlbiLogin.plugin), plugin);
         Bukkit.getPluginManager().registerEvents(new PlayerSendMessage(), plugin);
+        Bukkit.getPluginManager().registerEvents(new AntiBotChatListener(), plugin);
         Bukkit.getPluginManager().registerEvents(new PlayerInteraction(), plugin);
         Bukkit.getPluginManager().registerEvents(new BlockPluginsCommand(), plugin);
         Bukkit.getPluginManager().registerEvents(new com.blbilink.blbilogin.modules.dupe.ChestBoatDupeListener(60), plugin);

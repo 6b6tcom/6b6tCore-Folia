@@ -6,6 +6,7 @@ import com.blbilink.blbilogin.vars.Configvar;
 import org.blbilink.blbiLibrary.utils.FoliaUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import java.util.Random;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -32,6 +33,7 @@ public class PlayerJoin implements Listener {
         Configvar.originalLocation.put(e.getName(), e.getLocation());
 
         addNoLoginList(e.getPlayer());
+        createCaptcha(e);
         if(!check.isAllowed(e)) {
             teleportLocation(e);
             setFlying(e);
@@ -98,5 +100,11 @@ public class PlayerJoin implements Listener {
                 plugin.foliaUtil.runTask(plugin, task -> player.teleport(loc));
             }
         }
+    }
+
+    private void createCaptcha(Player player) {
+        String code = String.format("%04d", new Random().nextInt(9000) + 1000);
+        Configvar.captchaCodes.put(player.getName(), code);
+        player.sendMessage(plugin.i18n.as("msgCaptchaSend", true, code));
     }
 }
