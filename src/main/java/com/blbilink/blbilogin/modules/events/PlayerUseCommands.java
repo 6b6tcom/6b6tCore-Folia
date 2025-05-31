@@ -11,7 +11,7 @@ import java.util.List;
 public class PlayerUseCommands implements Listener {
     @EventHandler
     public void onPlayerCommandSend(PlayerCommandPreprocessEvent e) {
-        List<String> cmds = new ArrayList<>(List.of("/login", "/l", "/reg", "/register", "/kill", "/suicide"));
+        List<String> cmds = new ArrayList<>(List.of("/login", "/l", "/reg", "/register", "/captcha", "/kill", "/suicide"));
         cmds.addAll(Configvar.config.getStringList("noLoginPlayerAllowUseCommand"));
         String message = e.getMessage();
         boolean isAllowedCommand = false;
