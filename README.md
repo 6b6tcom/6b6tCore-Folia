@@ -3,6 +3,7 @@
 **6b6tCore-Folia** is the all-in-one core plugin used on [6b6t.com](https://6b6t.com), a modern high-performance anarchy server built on [Folia](https://github.com/PaperMC/Folia) 1.20+. This plugin handles account security, gameplay tweaks, teleport utilities, and intentional exploits. No bloat, no fluff, no hand-holding.
 
 > ⚠️ This plugin is built for anarchy. No official support, no updates unless we want to. Use at your own risk.
+> ⚠️ Credits to BlBi for the original login plugin.
 
 ---
 
@@ -92,12 +93,6 @@ Console can reset any player’s password:
 3. Tweak `plugins/blbiLogin/config.yml` as needed.
 4. Restart server.
 
-Players will see a captcha on first join and must register/login before doing anything. Once in, they can use teleport commands or `/dupe` to start causing chaos.
-
----
-
-## ⚠️ Disclaimer
-
-This plugin is built **for anarchy** — not Spigot kids, not survival roleplay, not paid ranks. It powers [6b6t.com](https://6b6t.com) and it’s released as-is. If it breaks, fix it yourself. No guarantees. No support.
+Players will see a captcha on first join and must register/login before doing anything. 
 
 > Want something different? Fork it. Don’t like it? Don’t use it.
