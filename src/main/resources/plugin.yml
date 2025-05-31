@@ -31,3 +31,15 @@ commands:
     description: "Show world statistics"
   info:
     description: "Alias of worldstats"
+  dupe:
+    description: "Explains the chest boat dupe"
+    usage: /dupe
+  tpa:
+    description: "Request to teleport to a player"
+    usage: /tpa <player>
+  tphere:
+    description: "Request a player to teleport to you"
+    usage: /tphere <player>
+  tpaccept:
+    description: "Accept a teleport request"
+    usage: /tpaccept

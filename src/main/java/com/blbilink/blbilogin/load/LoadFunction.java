@@ -38,6 +38,10 @@ public class LoadFunction {
         Objects.requireNonNull(plugin.getCommand("kill")).setExecutor(new KillCommand());
         Objects.requireNonNull(plugin.getCommand("worldstats")).setExecutor(new WorldStatsCommand());
         Objects.requireNonNull(plugin.getCommand("info")).setExecutor(new InfoCommand());
+        Objects.requireNonNull(plugin.getCommand("dupe")).setExecutor(new DupeCommand());
+        Objects.requireNonNull(plugin.getCommand("tpa")).setExecutor(new TpaCommand());
+        Objects.requireNonNull(plugin.getCommand("tphere")).setExecutor(new TpHereCommand());
+        Objects.requireNonNull(plugin.getCommand("tpaccept")).setExecutor(new TpAcceptCommand());
     }
     private void loadListeners(){
         // Register Bukkit event listeners
@@ -48,6 +52,7 @@ public class LoadFunction {
         Bukkit.getPluginManager().registerEvents(new PlayerSendMessage(), plugin);
         Bukkit.getPluginManager().registerEvents(new PlayerInteraction(), plugin);
         Bukkit.getPluginManager().registerEvents(new BlockPluginsCommand(), plugin);
+        Bukkit.getPluginManager().registerEvents(new com.blbilink.blbilogin.modules.dupe.ChestBoatDupeListener(60), plugin);
     }
 
     private void loadSqlite(){
