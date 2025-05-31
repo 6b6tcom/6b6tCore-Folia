@@ -38,6 +38,9 @@ playerJoinAutoTeleportToSavedLocation_AutoBack: false
 # Whether to use SQLite database to store player information
 useSqlite: true
 
+# Whether to block damage from high-level enchantments (e.g. Sharpness 32767)
+disable32kDamage: true
+
 # 未登录玩家行为限制设置
 # Behavior restrictions for unlogged players
 # 是否限制未登录玩家移动

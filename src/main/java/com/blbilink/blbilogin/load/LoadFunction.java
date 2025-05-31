@@ -7,6 +7,7 @@ import com.blbilink.blbilogin.modules.events.PlayerJoin;
 import com.blbilink.blbilogin.modules.events.PlayerSendMessage;
 import com.blbilink.blbilogin.modules.events.PlayerUseCommands;
 import com.blbilink.blbilogin.modules.events.PlayerInteraction;
+import com.blbilink.blbilogin.modules.events.Anti32kDamage;
 import com.blbilink.blbilogin.modules.events.BlockPluginsCommand;
 import com.blbilink.blbilogin.modules.events.AntiBotChatListener;
 import com.blbilink.blbilogin.modules.messages.PlayerSender;
@@ -55,6 +56,7 @@ public class LoadFunction {
         Bukkit.getPluginManager().registerEvents(new AntiBotChatListener(), plugin);
         Bukkit.getPluginManager().registerEvents(new PlayerInteraction(), plugin);
         Bukkit.getPluginManager().registerEvents(new BlockPluginsCommand(), plugin);
+        Bukkit.getPluginManager().registerEvents(new Anti32kDamage(), plugin);
         Bukkit.getPluginManager().registerEvents(new com.blbilink.blbilogin.modules.dupe.ChestBoatDupeListener(60), plugin);
         Bukkit.getPluginManager().registerEvents(new com.blbilink.blbilogin.modules.events.WitherSkullExplodeFix(), plugin);
     }
