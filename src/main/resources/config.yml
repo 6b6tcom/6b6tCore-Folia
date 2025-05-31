@@ -52,6 +52,7 @@ noLoginPlayerCantUseCommand: true
 # 未登录玩家允许使用的命令列表
 # List of commands allowed for unlogged players
 noLoginPlayerAllowUseCommand:
+  - "/captcha"
   - "/example"
 # 是否使未登录玩家无敌（不受伤害）
 # Whether to make unlogged players invulnerable (immune to damage)

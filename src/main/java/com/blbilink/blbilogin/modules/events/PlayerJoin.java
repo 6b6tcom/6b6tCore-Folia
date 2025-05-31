@@ -103,7 +103,15 @@ public class PlayerJoin implements Listener {
     }
 
     private void createCaptcha(Player player) {
-        String code = String.format("%04d", new Random().nextInt(9000) + 1000);
+        Random random = new Random();
+        String digits = String.format("%04d", random.nextInt(9000) + 1000);
+        StringBuilder prefix = new StringBuilder();
+        for (int i = 0; i < 3; i++) {
+            char letter = (char) ('A' + random.nextInt(26));
+            prefix.append(letter);
+        }
+
+        String code = prefix + digits;
         Configvar.captchaCodes.put(player.getName(), code);
         player.sendMessage(plugin.i18n.as("msgCaptchaSend", true, code));
     }

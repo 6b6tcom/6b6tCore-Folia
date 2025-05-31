@@ -10,7 +10,7 @@
 ## 🔧 Key Features
 
 - ✅ SQLite-based **/register** and **/login** system with optional Bedrock support via Floodgate.
-- ✅ Text-based **captcha** to block bots/skids on first join.
+- ✅ Text-based **captcha** to block bots/skids on first join. Codes include random letter prefixes.
 - ✅ Crossplay-friendly login forms (optional).
 - ✅ `/tpa`, `/tpaccept`, `/tphere` for basic teleportation without home/warp BS.
 - ✅ Solo chest boat dupe with `/dupe` command explaining how to abuse it.
@@ -56,6 +56,8 @@ Key settings:
 - `disable32kDamage`: Cancels damage from OP weapons (Enchants > 1000).
 - `noLoginPlayer*`: Full control over what unlogged players can/can’t do.
 - `bedrock`: Bedrock/Floodgate login support and auto-login options.
+
+`/captcha` is automatically whitelisted so new players can solve the captcha even when other commands are blocked.
 
 Database is stored in `players.db`.
 
