@@ -44,23 +44,8 @@ public class PlayerSender implements Listener {
     @EventHandler
     public void noLoginPlayerSendTitle(PlayerJoinEvent e) {
         if (!check.isBedrock(e.getPlayer())) {
-            if (Configvar.config.getBoolean("noLoginPlayerSendActionBar") ||
-                    Configvar.config.getBoolean("noLoginPlayerSendTitle") ||
-                    Configvar.config.getBoolean("noLoginPlayerSendSubTitle") ||
-                    Configvar.config.getBoolean("noLoginPlayerSendMessage") ||
-                    Configvar.config.getBoolean("noRegisterPlayerSendTitle") ||
-                    Configvar.config.getBoolean("noRegisterPlayerSendSubTitle") ||
-                    Configvar.config.getBoolean("noRegisterPlayerSendMessage") ||
-                    Configvar.config.getBoolean("noRegisterPlayerSendActionBar")) {
-
-                Player player = e.getPlayer();
-                FoliaUtil.Cancellable task = plugin.foliaUtil.runTaskTimerAsync(plugin, cancellable -> {
-                    if (Configvar.noLoginPlayerList.contains(player.getName())) {
-                        sendPlayerMessages(player);
-                    } else {
-                        cancellable.cancel();
-                    }
-                }, 0L, 60L);
+            if (Configvar.captchaPassed.contains(e.getPlayer().getName())) {
+                startLoginPrompts(e.getPlayer());
             }
         }
     }
@@ -79,6 +64,31 @@ public class PlayerSender implements Listener {
     @EventHandler
     public void onPluginDisable(PluginDisableEvent event) {
         if (event.getPlugin().equals(plugin)) if (timer != null) timer.cancel();
+    }
+
+
+    /**
+     * Begin showing login prompts for the given player. Prompts repeat until
+     * the player successfully logs in, at which point the task cancels itself.
+     */
+    public static void startLoginPrompts(Player player) {
+        if (Configvar.config.getBoolean("noLoginPlayerSendActionBar") ||
+                Configvar.config.getBoolean("noLoginPlayerSendTitle") ||
+                Configvar.config.getBoolean("noLoginPlayerSendSubTitle") ||
+                Configvar.config.getBoolean("noLoginPlayerSendMessage") ||
+                Configvar.config.getBoolean("noRegisterPlayerSendTitle") ||
+                Configvar.config.getBoolean("noRegisterPlayerSendSubTitle") ||
+                Configvar.config.getBoolean("noRegisterPlayerSendMessage") ||
+                Configvar.config.getBoolean("noRegisterPlayerSendActionBar")) {
+
+            plugin.foliaUtil.runTaskTimerAsync(plugin, cancellable -> {
+                if (Configvar.noLoginPlayerList.contains(player.getName())) {
+                    sendPlayerMessages(player);
+                } else {
+                    cancellable.cancel();
+                }
+            }, 20L, 60L); // start shortly after captcha success
+        }
     }
 
 

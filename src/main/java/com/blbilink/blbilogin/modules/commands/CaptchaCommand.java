@@ -1,6 +1,7 @@
 package com.blbilink.blbilogin.modules.commands;
 
 import com.blbilink.blbilogin.vars.Configvar;
+import com.blbilink.blbilogin.modules.messages.PlayerSender;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -31,6 +32,10 @@ public class CaptchaCommand implements CommandExecutor {
             Configvar.captchaCodes.remove(player.getName());
             Configvar.captchaPassed.add(player.getName());
             player.sendMessage(plugin.i18n.as("msgCaptchaSuccess", true));
+
+            // After captcha is passed, begin sending login prompts so the
+            // player knows to log in.
+            PlayerSender.startLoginPrompts(player);
         } else {
             player.sendMessage(plugin.i18n.as("msgCaptchaFail", true));
         }
