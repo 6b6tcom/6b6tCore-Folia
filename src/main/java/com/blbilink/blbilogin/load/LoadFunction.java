@@ -39,6 +39,9 @@ public class LoadFunction {
         Objects.requireNonNull(plugin.getCommand("worldstats")).setExecutor(new WorldStatsCommand());
         Objects.requireNonNull(plugin.getCommand("info")).setExecutor(new InfoCommand());
         Objects.requireNonNull(plugin.getCommand("dupe")).setExecutor(new DupeCommand());
+        Objects.requireNonNull(plugin.getCommand("tpa")).setExecutor(new TpaCommand());
+        Objects.requireNonNull(plugin.getCommand("tphere")).setExecutor(new TphereCommand());
+        Objects.requireNonNull(plugin.getCommand("tpaccept")).setExecutor(new TpacceptCommand());
     }
     private void loadListeners(){
         // Register Bukkit event listeners

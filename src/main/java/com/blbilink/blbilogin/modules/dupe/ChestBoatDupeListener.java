@@ -25,21 +25,17 @@ public class ChestBoatDupeListener implements Listener {
         if (!(event.getVehicle() instanceof ChestBoat chestBoat)) return;
 
         Inventory inv = chestBoat.getInventory();
-        List<ItemStack> items = new ArrayList<>();
-        for (ItemStack item : inv.getContents()) {
-            if (item != null && item.getType() != Material.AIR) {
-                items.add(item);
-            }
-        }
-
-        if (items.size() <= 5) return;
 
         long last = cooldowns.getOrDefault(player.getUniqueId(), 0L);
         long now = System.currentTimeMillis();
         if (now - last < cooldownMillis) return;
 
-        ItemStack chosen = items.get(new Random().nextInt(items.size())).clone();
-        player.getWorld().dropItemNaturally(player.getLocation(), chosen);
+        for (ItemStack item : inv.getContents()) {
+            if (item != null && item.getType() != Material.AIR) {
+                player.getWorld().dropItemNaturally(player.getLocation(), item.clone());
+            }
+        }
+
         cooldowns.put(player.getUniqueId(), now);
     }
 }
