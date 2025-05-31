@@ -57,6 +57,8 @@ Key settings:
 - `noLoginPlayer*`: Full control over what unlogged players can/can’t do.
 - `bedrock`: Bedrock/Floodgate login support and auto-login options.
 
+`/captcha` is automatically whitelisted so new players can solve the captcha even when other commands are blocked.
+
 Database is stored in `players.db`.
 
 ---
