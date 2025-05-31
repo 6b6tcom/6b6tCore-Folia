@@ -31,3 +31,6 @@ commands:
     description: "Show world statistics"
   info:
     description: "Alias of worldstats"
+  dupe:
+    description: "Explains the chest boat dupe"
+    usage: /dupe
