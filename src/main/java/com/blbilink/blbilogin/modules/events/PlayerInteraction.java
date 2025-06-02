@@ -37,10 +37,11 @@ public class PlayerInteraction implements Listener {
             return;
         }
 
-        // Block 32k weapons from damaging players if enabled
+        // Block weapons with enchant levels higher than normally allowed
         if (Configvar.config.getBoolean("anti32kPatch")) {
             var item = attacker.getInventory().getItemInMainHand();
-            if (item != null && item.getEnchantments().values().stream().anyMatch(l -> l > 1000)) {
+            if (item != null && item.getEnchantments().entrySet().stream()
+                    .anyMatch(e -> e.getValue() > e.getKey().getMaxLevel())) {
                 if (victim instanceof Player) {
                     ev.setCancelled(true);
                     attacker.sendMessage(Configvar.config.getString("prefix") + "32k weapons are disabled against players.");
