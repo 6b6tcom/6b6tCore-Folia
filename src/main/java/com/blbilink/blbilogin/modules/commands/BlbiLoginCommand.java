@@ -45,28 +45,27 @@ public class BlbiLoginCommand implements CommandExecutor, TabCompleter {
             return;
         }
 
-        // Schedule reload to avoid disabling the plugin while this command is executing
+        // Schedule reload so we don't disable the plugin while handling the command
         Bukkit.getScheduler().runTask(plugin, () -> {
             try {
-                // Resolve current plugin JAR location
                 java.io.File file = new java.io.File(plugin.getClass().getProtectionDomain().getCodeSource().getLocation().toURI());
                 org.bukkit.plugin.PluginManager pm = Bukkit.getPluginManager();
 
-                // Disable current instance
                 pm.disablePlugin(plugin);
 
-                // Load new instance from the (potentially replaced) JAR
                 org.bukkit.plugin.Plugin loaded = ((org.bukkit.plugin.SimplePluginManager) pm).loadPlugin(file);
                 loaded.onLoad();
                 pm.enablePlugin(loaded);
 
+                // Use the newly enabled instance for messages
+                BlbiLogin newPlugin = BlbiLogin.plugin;
                 if (sender instanceof Player player) {
-                    player.sendMessage(plugin.i18n.as("msgReloaded", true, player.getName()));
+                    player.sendMessage(newPlugin.i18n.as("msgReloaded", true, player.getName()));
                 } else {
-                    plugin.getLogger().info(plugin.i18n.as("msgReloaded", false));
+                    newPlugin.getLogger().info(newPlugin.i18n.as("msgReloaded", false));
                 }
             } catch (Exception e) {
-                plugin.getLogger().severe("Failed to reload plugin: " + e.getMessage());
+                BlbiLogin.plugin.getLogger().severe("Failed to reload plugin: " + e.getMessage());
                 e.printStackTrace();
             }
         });

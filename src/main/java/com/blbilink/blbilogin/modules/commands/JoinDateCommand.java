@@ -15,8 +15,9 @@ public class JoinDateCommand implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         String targetName = args.length > 0 ? args[0] : sender.getName();
-        OfflinePlayer target = Bukkit.getOfflinePlayer(targetName);
-        if (!target.hasPlayedBefore() && !target.isOnline()) {
+        OfflinePlayer target = Bukkit.getOfflinePlayerIfCached(targetName);
+        if (target == null) target = Bukkit.getPlayerExact(targetName);
+        if (target == null || (!target.hasPlayedBefore() && !target.isOnline())) {
             sender.sendMessage("Player not found");
             return true;
         }
