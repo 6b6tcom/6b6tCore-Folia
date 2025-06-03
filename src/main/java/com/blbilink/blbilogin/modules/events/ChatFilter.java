@@ -11,6 +11,8 @@ import java.util.UUID;
 
 public class ChatFilter implements Listener {
     private static final String[] BLOCKED_TLDS = {".com", ".org", ".cc", ".net"};
+    private static final String[] BLOCKED_WORDS = {"jonarchy"};
+
     private final Map<UUID, String> lastMessages = new HashMap<>();
 
     @EventHandler
@@ -24,6 +26,15 @@ public class ChatFilter implements Listener {
             if (lower.contains(tld)) {
                 event.setCancelled(true);
                 player.sendMessage("Links are not allowed in chat.");
+                return;
+            }
+        }
+
+        // Block specific offensive words
+        for (String word : BLOCKED_WORDS) {
+            if (lower.contains(word)) {
+                event.setCancelled(true);
+                player.sendMessage("That word is not allowed in chat.");
                 return;
             }
         }
