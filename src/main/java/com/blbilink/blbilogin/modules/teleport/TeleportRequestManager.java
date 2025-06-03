@@ -38,4 +38,9 @@ public class TeleportRequestManager {
     public static void removeRequest(UUID target) {
         requests.remove(target);
     }
+
+    public static void cancelRequests(UUID uuid) {
+        requests.entrySet().removeIf(e ->
+                e.getKey().equals(uuid) || e.getValue().requester.equals(uuid));
+    }
 }

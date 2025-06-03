@@ -34,6 +34,11 @@ public class Login implements CommandExecutor {
                 return true;
             }
 
+            if (Sqlite.getSqlite().isBlacklisted(uuid)) {
+                player.kickPlayer("Disconnected: Internal server error");
+                return true;
+            }
+
             if (login.isCorrect(uuid, password)) {
                 login.loginSuccess(player);
                 return true;

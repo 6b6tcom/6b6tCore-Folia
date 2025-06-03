@@ -24,6 +24,7 @@ import java.util.List;
 
 public final class BlbiLogin extends JavaPlugin implements Listener {
     public static BlbiLogin plugin;
+    public static long serverStartTime;
     public I18n i18n;
     public ConfigUtil config;
     public FoliaUtil foliaUtil;
@@ -31,6 +32,7 @@ public final class BlbiLogin extends JavaPlugin implements Listener {
     @Override
     public void onEnable() {
         plugin = this;
+        serverStartTime = System.currentTimeMillis();
 
         // Initialize plugin
         LoadConfig.loadConfig(this);
