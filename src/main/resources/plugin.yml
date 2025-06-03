@@ -30,6 +30,8 @@ commands:
   worldstats:
     description: "Show world statistics"
   info:
+    description: "Show player and server info"
+  stats:
     description: "Alias of worldstats"
   dupe:
     description: "Explains the chest boat dupe"
@@ -43,3 +45,21 @@ commands:
   tpaccept:
     description: "Accept a teleport request"
     usage: /tpaccept
+  tpacancel:
+    description: "Cancel teleport requests"
+    usage: /tpacancel
+  joindate:
+    description: "Show when a player first joined"
+    aliases: [jd]
+  playtime:
+    description: "Show a player's playtime"
+    aliases: [pt]
+  listplayers:
+    description: "List registered usernames"
+    usage: /listplayers <page>
+  tpoffline:
+    description: "Teleport to last logout location of a player"
+    usage: /tpoffline <username>
+  blacklist:
+    description: "Blacklist a player from login"
+    usage: /blacklist <username>

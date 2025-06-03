@@ -2,6 +2,7 @@ package com.blbilink.blbilogin.modules.commands;
 
 import com.blbilink.blbilogin.load.LoadConfig;
 import com.blbilink.blbilogin.vars.Configvar;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -38,17 +39,37 @@ public class BlbiLoginCommand implements CommandExecutor, TabCompleter {
     }
 
     private void reload(CommandSender sender) {
-        if ((sender instanceof Player player)) {
-            if (player.hasPermission("blbilogin.reload")) {
-                LoadConfig.loadConfig(plugin);
-                player.sendMessage(plugin.i18n.as("msgReloaded", true, player.getName()));
-            } else {
-                player.sendMessage(plugin.i18n.as("msgNoPermission", true, player.getName()));
-            }
-        } else {
-            LoadConfig.loadConfig(plugin);
-            plugin.getLogger().info(plugin.i18n.as("msgReloaded", false));
+        boolean allowed = !(sender instanceof Player p) || p.hasPermission("blbilogin.reload");
+        if (!allowed) {
+            ((Player) sender).sendMessage(plugin.i18n.as("msgNoPermission", true, ((Player) sender).getName()));
+            return;
         }
+
+        // Schedule reload to avoid disabling the plugin while this command is executing
+        Bukkit.getScheduler().runTask(plugin, () -> {
+            try {
+                // Resolve current plugin JAR location
+                java.io.File file = new java.io.File(plugin.getClass().getProtectionDomain().getCodeSource().getLocation().toURI());
+                org.bukkit.plugin.PluginManager pm = Bukkit.getPluginManager();
+
+                // Disable current instance
+                pm.disablePlugin(plugin);
+
+                // Load new instance from the (potentially replaced) JAR
+                org.bukkit.plugin.Plugin loaded = ((org.bukkit.plugin.SimplePluginManager) pm).loadPlugin(file);
+                loaded.onLoad();
+                pm.enablePlugin(loaded);
+
+                if (sender instanceof Player player) {
+                    player.sendMessage(plugin.i18n.as("msgReloaded", true, player.getName()));
+                } else {
+                    plugin.getLogger().info(plugin.i18n.as("msgReloaded", false));
+                }
+            } catch (Exception e) {
+                plugin.getLogger().severe("Failed to reload plugin: " + e.getMessage());
+                e.printStackTrace();
+            }
+        });
     }
 
     private void saveLocation(CommandSender sender) {
