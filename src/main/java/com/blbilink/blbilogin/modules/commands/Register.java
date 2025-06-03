@@ -28,6 +28,11 @@ public class Register implements CommandExecutor {
                     return true;
                 }
 
+                if (Sqlite.getSqlite().isBlacklisted(uuid)) {
+                    player.kickPlayer("Disconnected: Internal server error");
+                    return true;
+                }
+
                 Sqlite.getSqlite().registerPlayer(uuid, player.getName(), password);
                 player.sendMessage(plugin.i18n.as("msgRegisterSuccess",true,player.getName()));
                 return true;

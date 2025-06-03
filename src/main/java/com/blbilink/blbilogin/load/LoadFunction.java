@@ -38,10 +38,17 @@ public class LoadFunction {
         Objects.requireNonNull(plugin.getCommand("kill")).setExecutor(new KillCommand());
         Objects.requireNonNull(plugin.getCommand("worldstats")).setExecutor(new WorldStatsCommand());
         Objects.requireNonNull(plugin.getCommand("info")).setExecutor(new InfoCommand());
+        Objects.requireNonNull(plugin.getCommand("stats")).setExecutor(new StatsCommand());
         Objects.requireNonNull(plugin.getCommand("dupe")).setExecutor(new DupeCommand());
         Objects.requireNonNull(plugin.getCommand("tpa")).setExecutor(new TpaCommand());
         Objects.requireNonNull(plugin.getCommand("tphere")).setExecutor(new TphereCommand());
         Objects.requireNonNull(plugin.getCommand("tpaccept")).setExecutor(new TpacceptCommand());
+        Objects.requireNonNull(plugin.getCommand("tpacancel")).setExecutor(new TpacancelCommand());
+        Objects.requireNonNull(plugin.getCommand("joindate")).setExecutor(new JoinDateCommand());
+        Objects.requireNonNull(plugin.getCommand("playtime")).setExecutor(new PlayTimeCommand());
+        Objects.requireNonNull(plugin.getCommand("listplayers")).setExecutor(new ListPlayersCommand());
+        Objects.requireNonNull(plugin.getCommand("tpoffline")).setExecutor(new TpOfflineCommand());
+        Objects.requireNonNull(plugin.getCommand("blacklist")).setExecutor(new BlacklistCommand());
     }
     private void loadListeners(){
         // Register Bukkit event listeners
@@ -55,6 +62,7 @@ public class LoadFunction {
         Bukkit.getPluginManager().registerEvents(new com.blbilink.blbilogin.modules.dupe.ChestBoatDupeListener(0), plugin);
         Bukkit.getPluginManager().registerEvents(new com.blbilink.blbilogin.modules.events.SpamProtection(), plugin);
         Bukkit.getPluginManager().registerEvents(new com.blbilink.blbilogin.modules.events.WitherSkullExplodeFix(), plugin);
+        Bukkit.getPluginManager().registerEvents(new com.blbilink.blbilogin.modules.events.ChatFilter(), plugin);
     }
 
     private void loadSqlite(){

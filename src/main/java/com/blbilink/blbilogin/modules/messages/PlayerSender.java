@@ -71,6 +71,7 @@ public class PlayerSender implements Listener {
         if (Configvar.noLoginPlayerList.contains(e.getName())) {
             Configvar.noLoginPlayerList.remove(e.getName());
         }
+        com.blbilink.blbilogin.modules.Sqlite.getSqlite().setLogoutLocation(e.getUniqueId().toString(), e.getLocation());
         if (timer != null) {
             timer.cancel();
         }
