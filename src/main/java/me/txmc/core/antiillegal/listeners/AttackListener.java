@@ -14,8 +14,11 @@ public class AttackListener implements Listener {
     public void onAttack(EntityDamageByEntityEvent event) {
         if (!(event.getDamager() instanceof Player)) return;
         if (event.getDamage() > 30D) {
-            event.setCancelled(true);
-            ((Player) event.getDamager()).damage(event.getDamage());
+            // Limit damage to prevent 32k weapons from one-shotting players.
+            // Cancelling the event and damaging the attacker could lead to
+            // inconsistent behaviour when other plugins listen to the same
+            // event.  Simply cap the damage to a safe value instead.
+            event.setDamage(30D);
         }
     }
 }
