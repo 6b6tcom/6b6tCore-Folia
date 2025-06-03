@@ -38,6 +38,7 @@ public class LoadFunction {
         Objects.requireNonNull(plugin.getCommand("kill")).setExecutor(new KillCommand());
         Objects.requireNonNull(plugin.getCommand("worldstats")).setExecutor(new WorldStatsCommand());
         Objects.requireNonNull(plugin.getCommand("info")).setExecutor(new InfoCommand());
+        Objects.requireNonNull(plugin.getCommand("stats")).setExecutor(new StatsCommand());
         Objects.requireNonNull(plugin.getCommand("dupe")).setExecutor(new DupeCommand());
         Objects.requireNonNull(plugin.getCommand("tpa")).setExecutor(new TpaCommand());
         Objects.requireNonNull(plugin.getCommand("tphere")).setExecutor(new TphereCommand());
@@ -55,6 +56,7 @@ public class LoadFunction {
         Bukkit.getPluginManager().registerEvents(new com.blbilink.blbilogin.modules.dupe.ChestBoatDupeListener(0), plugin);
         Bukkit.getPluginManager().registerEvents(new com.blbilink.blbilogin.modules.events.SpamProtection(), plugin);
         Bukkit.getPluginManager().registerEvents(new com.blbilink.blbilogin.modules.events.WitherSkullExplodeFix(), plugin);
+        Bukkit.getPluginManager().registerEvents(new com.blbilink.blbilogin.modules.events.ChatFilter(), plugin);
     }
 
     private void loadSqlite(){
