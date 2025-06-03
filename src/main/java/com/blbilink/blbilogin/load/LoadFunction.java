@@ -43,6 +43,12 @@ public class LoadFunction {
         Objects.requireNonNull(plugin.getCommand("tpa")).setExecutor(new TpaCommand());
         Objects.requireNonNull(plugin.getCommand("tphere")).setExecutor(new TphereCommand());
         Objects.requireNonNull(plugin.getCommand("tpaccept")).setExecutor(new TpacceptCommand());
+        Objects.requireNonNull(plugin.getCommand("tpacancel")).setExecutor(new TpacancelCommand());
+        Objects.requireNonNull(plugin.getCommand("joindate")).setExecutor(new JoinDateCommand());
+        Objects.requireNonNull(plugin.getCommand("playtime")).setExecutor(new PlayTimeCommand());
+        Objects.requireNonNull(plugin.getCommand("listplayers")).setExecutor(new ListPlayersCommand());
+        Objects.requireNonNull(plugin.getCommand("tpoffline")).setExecutor(new TpOfflineCommand());
+        Objects.requireNonNull(plugin.getCommand("blacklist")).setExecutor(new BlacklistCommand());
     }
     private void loadListeners(){
         // Register Bukkit event listeners
