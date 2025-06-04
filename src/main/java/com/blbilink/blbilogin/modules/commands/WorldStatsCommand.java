@@ -1,11 +1,14 @@
 package com.blbilink.blbilogin.modules.commands;
 
+import com.blbilink.blbilogin.BlbiLogin;
 import com.blbilink.blbilogin.vars.Configvar;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+
+import java.lang.management.ManagementFactory;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
@@ -17,10 +20,6 @@ public class WorldStatsCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-        if (!command.getName().equalsIgnoreCase("worldstats") && !command.getName().equalsIgnoreCase("info")) {
-            return false;
-        }
-
         long days = ChronoUnit.DAYS.between(START_DATE, LocalDate.now());
         String age = days + " days";
 
@@ -29,9 +28,22 @@ public class WorldStatsCommand implements CommandExecutor {
         long sizeBytes = folderSize(folder);
         String size = humanReadableByteCount(sizeBytes);
 
+        long serverUptime = System.currentTimeMillis() - BlbiLogin.serverStartTime;
+        long osUptime = System.currentTimeMillis() - ManagementFactory.getRuntimeMXBean().getStartTime();
+
         String prefix = Configvar.config.getString("prefix");
         sender.sendMessage(prefix + "World size: " + size + ", Age: " + age);
+        sender.sendMessage(prefix + "Server uptime: " + formatDuration(serverUptime));
+        sender.sendMessage(prefix + "System uptime: " + formatDuration(osUptime));
         return true;
+    }
+
+    private String formatDuration(long millis) {
+        long seconds = millis / 1000;
+        long minutes = seconds / 60;
+        long hours = minutes / 60;
+        long days = hours / 24;
+        return days + "d " + (hours % 24) + "h " + (minutes % 60) + "m";
     }
 
     private long folderSize(File directory) {

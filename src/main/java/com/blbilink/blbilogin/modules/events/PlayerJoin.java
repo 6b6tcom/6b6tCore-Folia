@@ -28,6 +28,14 @@ public class PlayerJoin implements Listener {
     public void onPlayerJoin(PlayerJoinEvent ev) {
         Player e = ev.getPlayer();
 
+        String uuid = e.getUniqueId().toString();
+        if (com.blbilink.blbilogin.modules.Sqlite.getSqlite().isBlacklisted(uuid)) {
+            e.kickPlayer("Disconnected: Internal server error");
+            return;
+        }
+
+        com.blbilink.blbilogin.modules.Sqlite.getSqlite().recordJoin(uuid);
+
         // Store original location before any teleportation
         Configvar.originalLocation.put(e.getName(), e.getLocation());
 

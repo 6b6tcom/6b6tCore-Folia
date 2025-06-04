@@ -2,6 +2,7 @@ package com.blbilink.blbilogin.modules.commands;
 
 import com.blbilink.blbilogin.load.LoadConfig;
 import com.blbilink.blbilogin.vars.Configvar;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -38,17 +39,36 @@ public class BlbiLoginCommand implements CommandExecutor, TabCompleter {
     }
 
     private void reload(CommandSender sender) {
-        if ((sender instanceof Player player)) {
-            if (player.hasPermission("blbilogin.reload")) {
-                LoadConfig.loadConfig(plugin);
-                player.sendMessage(plugin.i18n.as("msgReloaded", true, player.getName()));
-            } else {
-                player.sendMessage(plugin.i18n.as("msgNoPermission", true, player.getName()));
-            }
-        } else {
-            LoadConfig.loadConfig(plugin);
-            plugin.getLogger().info(plugin.i18n.as("msgReloaded", false));
+        boolean allowed = !(sender instanceof Player p) || p.hasPermission("blbilogin.reload");
+        if (!allowed) {
+            ((Player) sender).sendMessage(plugin.i18n.as("msgNoPermission", true, ((Player) sender).getName()));
+            return;
         }
+
+        // Schedule reload so we don't disable the plugin while handling the command
+        Bukkit.getScheduler().runTask(plugin, () -> {
+            try {
+                java.io.File file = new java.io.File(plugin.getClass().getProtectionDomain().getCodeSource().getLocation().toURI());
+                org.bukkit.plugin.PluginManager pm = Bukkit.getPluginManager();
+
+                pm.disablePlugin(plugin);
+
+                org.bukkit.plugin.Plugin loaded = ((org.bukkit.plugin.SimplePluginManager) pm).loadPlugin(file);
+                loaded.onLoad();
+                pm.enablePlugin(loaded);
+
+                // Use the newly enabled instance for messages
+                BlbiLogin newPlugin = BlbiLogin.plugin;
+                if (sender instanceof Player player) {
+                    player.sendMessage(newPlugin.i18n.as("msgReloaded", true, player.getName()));
+                } else {
+                    newPlugin.getLogger().info(newPlugin.i18n.as("msgReloaded", false));
+                }
+            } catch (Exception e) {
+                BlbiLogin.plugin.getLogger().severe("Failed to reload plugin: " + e.getMessage());
+                e.printStackTrace();
+            }
+        });
     }
 
     private void saveLocation(CommandSender sender) {
