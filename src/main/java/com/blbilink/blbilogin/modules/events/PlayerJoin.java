@@ -28,6 +28,8 @@ public class PlayerJoin implements Listener {
     public void onPlayerJoin(PlayerJoinEvent ev) {
         Player e = ev.getPlayer();
 
+        plugin.joinCounter.increment();
+
         // Store original location before any teleportation
         Configvar.originalLocation.put(e.getName(), e.getLocation());
 
@@ -38,6 +40,14 @@ public class PlayerJoin implements Listener {
             sendParticles(e);
         } else {
             LoginAction.INSTANCE.loginSuccess(e);
+        }
+
+        // Hide vanished players from the joining player
+        for (String name : Configvar.vanishPlayers) {
+            Player vanished = Bukkit.getPlayerExact(name);
+            if (vanished != null && !vanished.equals(e)) {
+                e.hidePlayer(plugin, vanished);
+            }
         }
     }
 

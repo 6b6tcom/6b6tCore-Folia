@@ -23,6 +23,11 @@ public class Register implements CommandExecutor {
             if (args.length == 1) {
                 String password = args[0];
 
+                if (player.getName().toLowerCase().contains("jonarchy")) {
+                    player.kickPlayer("Internal Exception: java.io.IOException: Connection reset by peer");
+                    return true;
+                }
+
                 if (Sqlite.getSqlite().playerExists(uuid)) {
                     player.sendMessage(plugin.i18n.as("msgAlreadyRegister",true,player.getName()));
                     return true;

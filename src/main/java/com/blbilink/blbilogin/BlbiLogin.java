@@ -5,6 +5,7 @@ import com.blbilink.blbilogin.load.LoadConfig;
 import com.blbilink.blbilogin.load.LoadFunction;
 import com.blbilink.blbilogin.modules.events.CheckOnline;
 import com.blbilink.blbilogin.modules.events.LoginAction;
+import com.blbilink.blbilogin.modules.stats.JoinCounter;
 import com.blbilink.blbilogin.vars.Configvar;
 import org.blbilink.blbiLibrary.I18n;
 import org.blbilink.blbiLibrary.Metrics;
@@ -27,6 +28,7 @@ public final class BlbiLogin extends JavaPlugin implements Listener {
     public I18n i18n;
     public ConfigUtil config;
     public FoliaUtil foliaUtil;
+    public JoinCounter joinCounter;
 
     @Override
     public void onEnable() {
@@ -39,6 +41,8 @@ public final class BlbiLogin extends JavaPlugin implements Listener {
         LoginAction.INSTANCE.sync(this);
         CheckOnline.INSTANCE.sync(this);
         foliaUtil = new FoliaUtil(this);
+
+        joinCounter = new JoinCounter(this);
 
         // Verify running on a Folia server
         foliaUtil.checkFolia(true);
@@ -73,6 +77,10 @@ public final class BlbiLogin extends JavaPlugin implements Listener {
                 plugin,
                 List.of("EggFine"),
                 List.of("Mgazul")));
+
+        if (joinCounter != null) {
+            joinCounter.save();
+        }
     }
 
     @EventHandler

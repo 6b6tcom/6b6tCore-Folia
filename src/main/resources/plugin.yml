@@ -27,6 +27,11 @@ commands:
     description: "Kill yourself"
     aliases:
       - suicide
+  vanish:
+    description: "Toggle vanish mode"
+    permission: blbilogin.vanish
+  joinstats:
+    description: "Show join statistics"
   worldstats:
     description: "Show world statistics"
   info:

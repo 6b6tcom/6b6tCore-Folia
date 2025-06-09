@@ -38,6 +38,8 @@ public class LoadFunction {
         Objects.requireNonNull(plugin.getCommand("kill")).setExecutor(new KillCommand());
         Objects.requireNonNull(plugin.getCommand("worldstats")).setExecutor(new WorldStatsCommand());
         Objects.requireNonNull(plugin.getCommand("info")).setExecutor(new InfoCommand());
+        Objects.requireNonNull(plugin.getCommand("joinstats")).setExecutor(new JoinStatsCommand());
+        Objects.requireNonNull(plugin.getCommand("vanish")).setExecutor(new VanishCommand());
         Objects.requireNonNull(plugin.getCommand("dupe")).setExecutor(new DupeCommand());
         Objects.requireNonNull(plugin.getCommand("tpa")).setExecutor(new TpaCommand());
         Objects.requireNonNull(plugin.getCommand("tphere")).setExecutor(new TphereCommand());
