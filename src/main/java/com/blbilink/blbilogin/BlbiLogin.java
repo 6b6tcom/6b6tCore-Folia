@@ -44,8 +44,8 @@ public final class BlbiLogin extends JavaPlugin implements Listener {
 
         joinCounter = new JoinCounter(this);
 
-        // Verify running on a Folia server
-        foliaUtil.checkFolia(true);
+        // Detect Folia but continue loading on Paper based servers
+        foliaUtil.checkFolia(false);
 
         getConfig().options().copyDefaults(true);
         saveDefaultConfig();

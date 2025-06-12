@@ -4,7 +4,7 @@ import me.txmc.core.antiillegal.check.Check;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
-import org.bukkit.potion.PotionMeta;
+import org.bukkit.inventory.meta.PotionMeta;
 
 /**
  * Checks for extreme potion effects and removes them.

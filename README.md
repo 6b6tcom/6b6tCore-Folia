@@ -1,6 +1,6 @@
 # 6b6tCore
 
-6b6tCore is a plugin designed for Folia and Spigot based servers. It powers the core features of the 6b6t network, providing a multilingual login system, teleportation utilities and protections against illegal items.
+6b6tCore is a plugin designed for Folia as well as standard Paper servers. It powers the core features of the 6b6t network, providing a multilingual login system, teleport utilities and protections against illegal items.
 
 ## Features
 
@@ -38,6 +38,8 @@ dangerous items as players interact with them. Checks include:
 ## Configuration
 
 A default `config.yml` will be created on first launch. It contains options for language, login behaviour and other settings. Messages can be translated by editing the files in `src/main/resources/languages`.
+
+The `broadcastMessage` section controls the periodic advertisement that runs once per hour by default. Set `enabled` to `false` to disable it or adjust the interval as needed.
 
 ## License
 

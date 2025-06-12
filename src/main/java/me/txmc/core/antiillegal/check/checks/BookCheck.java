@@ -26,15 +26,17 @@ public class BookCheck implements Check {
     @Override
     public void fix(ItemStack item) {
         if (!(item.getItemMeta() instanceof BookMeta meta)) return;
-        while (meta.getPageCount() > MAX_PAGES) {
-            meta.removePage(meta.getPageCount());
+        java.util.List<String> pages = new java.util.ArrayList<>(meta.getPages());
+        while (pages.size() > MAX_PAGES) {
+            pages.remove(pages.size() - 1);
         }
-        for (int i = 1; i <= meta.getPageCount(); i++) {
-            String page = meta.getPage(i);
+        for (int i = 0; i < pages.size(); i++) {
+            String page = pages.get(i);
             if (page.length() > MAX_PAGE_LENGTH) {
-                meta.setPage(i, page.substring(0, MAX_PAGE_LENGTH));
+                pages.set(i, page.substring(0, MAX_PAGE_LENGTH));
             }
         }
+        meta.setPages(pages);
         item.setItemMeta(meta);
     }
 }
