@@ -44,8 +44,8 @@ public final class BlbiLogin extends JavaPlugin implements Listener {
 
         joinCounter = new JoinCounter(this);
 
-        // Verify running on a Folia server
-        foliaUtil.checkFolia(true);
+        // Detect Folia but continue loading on Paper based servers
+        foliaUtil.checkFolia(false);
 
         getConfig().options().copyDefaults(true);
         saveDefaultConfig();
@@ -64,6 +64,15 @@ public final class BlbiLogin extends JavaPlugin implements Listener {
         // Load bStats metrics
         Metrics metrics = new Metrics(this, 22490);
         metrics.addCustomChart(new Metrics.SimplePie("chart_id", () -> "My value"));
+
+        long interval = Configvar.config.getLong("broadcastMessage.intervalSeconds", 3600L);
+        String text = Configvar.config.getString("broadcastMessage.text",
+                "Like 6b6t? Try our other servers\n" +
+                "6b6t.com - 1.21 cracked anarchy\n" +
+                "old.6b6t.com - 1.12.2 cracked anarchy");
+        foliaUtil.runTaskTimerAsync(this,
+                c -> getServer().broadcastMessage(text),
+                0L, 20L * interval);
     }
 
 

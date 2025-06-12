@@ -24,7 +24,7 @@ commands:
       - resetpass
       - resetpw
   kill:
-    description: "Kill yourself"
+    description: "Eliminate your character"
     aliases:
       - suicide
   vanish:

@@ -136,4 +136,13 @@ bedrock:
     prefix_value: "*"
   # 是否允许基岩版玩家使用表单？
   # Allow forms for bedrock players?
-  forms: true
+forms: true
+
+# Periodic broadcast promoting other servers
+broadcastMessage:
+  enabled: true
+  intervalSeconds: 3600
+  text: |
+    Like 6b6t? Try our other servers
+    6b6t.com - 1.21 cracked anarchy
+    old.6b6t.com - 1.12.2 cracked anarchy

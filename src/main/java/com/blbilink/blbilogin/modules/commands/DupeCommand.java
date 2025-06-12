@@ -9,8 +9,8 @@ import org.jetbrains.annotations.NotNull;
 public class DupeCommand implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-        String msg = "Place a chest boat, fill it with items, ride it and exit." +
-                " All items will duplicate with 100% success and there is no cooldown.";
+        String msg = "Use a chest boat, load it with items, ride it, then dismount. " +
+                "All contents will duplicate and there is no cooldown.";
         sender.sendMessage(Configvar.config.getString("prefix") + msg);
         return true;
     }
