@@ -2,7 +2,4 @@
 
 #### FOLIA ANARCHY CORE
 
-NO SUPPORT PROVIDED.
-
-
-`6b6t.com` to see the plugin in action
+Old anarchy core plugin for the server i used to run, 6b6t.com
